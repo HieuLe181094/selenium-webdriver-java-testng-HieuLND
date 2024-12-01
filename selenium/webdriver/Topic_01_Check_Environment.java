@@ -8,9 +8,6 @@ import org.testng.annotations.Test;
 
 public class Topic_01_Check_Environment {
     WebDriver driver;
-
-
-
     @Test
     public void TC_01_Run_On_Firefox() {
         driver = new FirefoxDriver();
