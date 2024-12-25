@@ -25,7 +25,7 @@ public class Topic_01_DataType {
         char cCity = 'b';
     }
 
-    public char cName = 'b';
+
 
     // Nhóm 1 - Kiểu dữ kiệu nguyên thủy (primitive type)
     // char: kí tự (character)
@@ -75,7 +75,7 @@ public class Topic_01_DataType {
     List<String> studentCity = new LinkedList<String>();
 
     // Map
-    Map<String,Integer> zip = new HashMap<>(String, Integer)>()>;
+    Map<String, Integer> zip = new HashMap<String, Integer>();
 
 
     // Object
