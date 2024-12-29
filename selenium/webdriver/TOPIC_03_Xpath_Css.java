@@ -118,6 +118,23 @@ public class TOPIC_03_Xpath_Css {
 
         Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(),"Số điện thoại phải từ 10-11 số.");
 
+        // <10 number
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.id("txtPhone")).sendKeys("096699482");
+        Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(),"Số điện thoại phải từ 10-11 số.");
+
+        //> 11 number
+        driver.findElement(By.id("txtPhone")).clear();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.id("txtPhone")).sendKeys("096699482000");
+        Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(),"Số điện thoại phải từ 10-11 số.");
+
+
+        // star with #09 08..
+        driver.findElement(By.id("txtPhone")).clear();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.id("txtPhone")).sendKeys("04556215633");
+        Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(),"Số điện thoại bắt đầu bằng: 09 - 03 - 012 - 016 - 018 - 019 - 088 - 03 - 05 - 07 - 08");
     }
 
 
