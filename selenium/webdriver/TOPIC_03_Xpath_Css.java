@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class TOPIC_03_Xpath_Css {
 
@@ -19,7 +20,13 @@ public class TOPIC_03_Xpath_Css {
         //Arrange
         driver = new FirefoxDriver();
         driver.get("https://alada.vn/tai-khoan/dang-ky.html");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        //Selenium ver 4x
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        //Selenium ver 3x
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     }
 
 

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.locators.RelativeLocator;
+//import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -139,7 +139,7 @@ public class Topic_02_Selenium_Locator {
 
         //Element/ By A
         By passwordTextboxBy = By.cssSelector("input#Password");
-        WebElement passwordTextbox = driver.findElement(By.cssSelector("input#Password"));
+        //WebElement passwordTextbox = driver.findElement(By.cssSelector("input#Password"));
 
 
         //Element/ By B
@@ -152,14 +152,14 @@ public class Topic_02_Selenium_Locator {
         By loginButtonBy = By.cssSelector("button.login-button");
 
         //Element/By E
-        WebElement rememberMeLabelText = driver.findElement(RelativeLocator.with(By.tagName("label"))
-                .above(loginButtonBy) //Label nằm trên Login button
-                .below(passwordTextbox) //Label nằm dười Password Textbox
-                .toRightOf(rememberMeCheckboxBy) // Label nằm bên trái so với RememberMe checkbox
-                .toLeftOf(forgotPasswordLinkBy) // Label nằm bên trái so với Forgot Password link
-                .near(rememberMeCheckboxBy)
-                .near(forgotPasswordLinkBy)
-        );
+//        WebElement rememberMeLabelText = driver.findElement(RelativeLocator.with(By.tagName("label"))
+//                .above(loginButtonBy) //Label nằm trên Login button
+//                .below(passwordTextbox) //Label nằm dười Password Textbox
+//                .toRightOf(rememberMeCheckboxBy) // Label nằm bên trái so với RememberMe checkbox
+//                .toLeftOf(forgotPasswordLinkBy) // Label nằm bên trái so với Forgot Password link
+//                .near(rememberMeCheckboxBy)
+//                .near(forgotPasswordLinkBy)
+//        );
 
         driver.findElement(By.xpath(""));
 
@@ -205,6 +205,7 @@ public class Topic_02_Selenium_Locator {
 
     @AfterClass
     public void TC_03_Clean(){
+
         driver.quit();
     }
 

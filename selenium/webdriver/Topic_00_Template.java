@@ -21,12 +21,12 @@ public class Topic_00_Template {
     }
 
     //2 - Action/ Execute: Tương tác lên element nào/nhập liệu/verify/…
-@Test
+    @Test
     public void TC_01_() {
 
     }
 
-@Test
+    @Test
     public void TC_02_() {
 
     }
