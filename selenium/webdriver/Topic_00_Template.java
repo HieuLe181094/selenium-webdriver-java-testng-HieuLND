@@ -8,6 +8,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class Topic_00_Template {
 
     //1 - Setup: OS/ Browser/ Web/ Page/ Data/ Variable/ Object/,,
@@ -18,6 +20,7 @@ public class Topic_00_Template {
         driver = new FirefoxDriver();
 
         driver.get("https://demo.nopcommerce.com/");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
     //2 - Action/ Execute: Tương tác lên element nào/nhập liệu/verify/…
