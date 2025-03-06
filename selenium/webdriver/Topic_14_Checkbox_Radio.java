@@ -14,10 +14,12 @@ public class Topic_14_Checkbox_Radio {
 
 
     WebDriver driver;
+    JavascriptExecutor jsExecutor;
 
     @BeforeClass
     public void initialBrowser() {
         driver = new FirefoxDriver();
+        jsExecutor = (JavascriptExecutor) driver;
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
 
@@ -145,6 +147,68 @@ public class Topic_14_Checkbox_Radio {
             }
         }
 
+    }
+
+    @Test
+    public void TC_04_Ubuntu() {
+        driver.get("https://login.ubuntu.com");
+
+        // Thẻ input: dùng để click
+        // Dùng để verify: isSelected()
+
+        By newUserRadio = By.cssSelector("input#id_new_user");
+
+        // 1- Dùng thẻ input để click -> Fail
+        // Dùng thể input này để verify
+        // driver.findElement(By.cssSelector("input#id_new_user")).click();
+        // Assert.assertTrue(driver.findElement(newUserRadio).isSelected());
+
+        newUserRadio = By.cssSelector("label.new-user");
+        // 2 - Dùng 1 thẻ khác input để click -> Pass
+        // Dùng thể đó để verify -> Fail
+        // isSelected() -> Dùng cho thẻ input/option
+        // driver.findElement(newUserRadio).click();
+        // Assert.assertFalse(driver.findElement(newUserRadio).isSelected());
+
+        // 3 - Dùng 1 thẻ khác input để click -> Pass
+        // Dùng thể input này để verify -> Pass
+
+
+        // 4 - Dùng duy nhất thẻ input để click/verify dùng JS Excutor
+        By newUserRadioInput =  By.cssSelector("input#id_new_user");
+
+        jsExecutor.executeScript("arguments[0].click()",driver.findElement(newUserRadioInput));
+        Assert.assertTrue(driver.findElement(newUserRadioInput).isSelected());
+
+        By termCheckbox = By.cssSelector("input#id_accept_tos");
+
+        jsExecutor.executeScript("arguments[0].click();",driver.findElement(termCheckbox));
+        Assert.assertTrue(driver.findElement(termCheckbox).isSelected());
+
+    }
+    @Test
+    public void TC_05_Docs() throws InterruptedException {
+        driver.get("https://docs.google.com/forms/d/e/1FAIpQLSfiypnd69zhuDkjKgqvpID9kwO29UCzeCVrGGtbNPZXQok0jA/viewform");
+        Thread.sleep(5000);
+
+        By canthoRadio = By.xpath("//div[@aria-label='Cần Thơ']");
+        By xuquangRadio = By.xpath("//div[@aria-label='Xứ Quảng']");
+
+        driver.findElement(canthoRadio).click();
+        Assert.assertEquals(driver.findElement(canthoRadio).getAttribute("aria-checked"),"true");
+
+//        // Check
+//        if (driver.findElement(xuquangRadio).getAttribute("aria-checked").equals("false")){
+//            driver.findElement(xuquangRadio).click();
+//        }
+//
+//        // Uncheck
+//        if (driver.findElement(xuquangRadio).getAttribute("aria-checked").equals("true")){
+//            driver.findElement(xuquangRadio).click();
+//        }
+
+//        driver.findElement(xuquangRadio).click();
+//        Assert.assertEquals(driver.findElement(xuquangRadio).getAttribute("aria-checked").equals("false"));
     }
 
 
