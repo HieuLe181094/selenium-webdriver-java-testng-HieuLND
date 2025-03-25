@@ -18,9 +18,8 @@ public class Topic_00_Template {
     @BeforeClass
     public void initialBrowser() {
         driver = new FirefoxDriver();
-
-        driver.get("https://demo.nopcommerce.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
     }
 
     //2 - Action/ Execute: Tương tác lên element nào/nhập liệu/verify/…
