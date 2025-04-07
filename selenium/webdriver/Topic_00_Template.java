@@ -36,6 +36,6 @@ public class Topic_00_Template {
     //3- Clean: delete data test/ account/ close browser/…
 
     @AfterClass
-    public void TC_03_Clean(){
+    public void CleanBrowser(){
         driver.quit();}
     }
