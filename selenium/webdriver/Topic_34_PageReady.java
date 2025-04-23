@@ -24,10 +24,7 @@ public class Topic_34_PageReady {
 
     @BeforeClass
     public void initialBrowser() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--user-data-dir=C:/Users/Admin/AppData/Local/Google/Chrome/User Data/");
-        chromeOptions.addArguments("--profile-directory=Default");
-        driver = new ChromeDriver(chromeOptions);
+        driver = new FirefoxDriver();
 
         explicitWait = new WebDriverWait(driver,Duration.ofSeconds(15));
 
@@ -36,7 +33,7 @@ public class Topic_34_PageReady {
 
     @Test
     public void TC_01_PageReady() {
-        driver.get("https://admin-demo.nopcommerce.com");
+        driver.get("http://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
 
         explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#Email")));
 

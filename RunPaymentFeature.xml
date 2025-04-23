@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Live Guru - Payment" >
+
+    <test name="Live Guru - Payment">
+        <classes>
+            <class name="payment.Payment_01_CRUD"></class>
+
+        </classes>
+    </test>
+
+</suite>
